@@ -1,0 +1,24 @@
+#!/usr/bin/env
+[Unit]
+Description=sidekiq 
+After=syslog.target network.target
+
+[Service] 
+Type=notify 
+WatchdogSec=10
+
+Environment="DAS_URL=REPLACE_DAS_URL"
+Environment="DAS_AUTH_TOKEN=REPLACE_DAS_AUTH_TOKEN"
+
+WorkingDirectory=/home/fosui/hmi
+ExecStart=/home/fosui/.rvm/gems/ruby-3.0.1@hmi/wrappers/bundle exec sidekiq -e sandbox -C config/sidekiq.yml
+User=fosui
+Group=users
+UMask=0002
+
+# if we crash, restart RestartSec=1 Restart=on-failure TimeoutSec=10
+# output goes to /var/log/syslog (Ubuntu) or /var/log/messages (CentOS) #StandardOutput=syslog
+#StandardError=syslog
+# This will default to "bundler" if we don't specify it SyslogIdentifier=sidekiq
+[Install]
+WantedBy=multi-user.target

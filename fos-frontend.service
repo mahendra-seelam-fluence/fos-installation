@@ -1,0 +1,29 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides: fos-frontend
+# Required-Start: $remote_fs $all # Required-Stop:
+# X-Start-Before:
+# X-Stop-After:
+     
+# Default-Start: 2 3 4 5
+# Default-Stop:
+# Short-Description: Fluence Operating System Frontend # Description: Fluence Operating System Frontend ### END INIT INFO
+ADVHMIHOME=/home/fosui
+case "$1" in start)
+chown -R fosui:users /home/fosui
+su - fosui -c "(cd $ADVHMIHOME/fos_interface/; rm -rf build; yarn; CABLE_SERVER=wss://REPLACE_SITE_HOST_URL/cable API_ENDPOINT=https://REPLACE_SITE_HOST_URL/api/v1 NODE_ENV=staging yarn build > logs/fos.log 2>&1 &)"
+;;
+stop) ;;
+restart)
+$0 stop
+sleep 15
+$0 start
+sleep 5
+/usr/sbin/service nginx restart ;;
+status) echo
+
+/usr/sbin/service nginx status ;;
+*)
+echo "Usage: /etc/init.d/fos-frontend {start|stop|restart|status}"
+;;
+esac
