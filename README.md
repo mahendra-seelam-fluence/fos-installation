@@ -1,15 +1,14 @@
-# fos-installation
-
+# FOS Installation
 
 ## Preparation:
 
 ### FOS Installation Instructions
 
-**Make sure you have access to the correct git archive for hmi.**
-**Make sure that both port 443 and port 8443 are open and can be accessed.**
-**Verify that the /etc/nginx.conf file contains references to “listen 8443”.**
-**Obtain copies of fos_ds.csv and fos_dp.csv from the Dev team.**
-**Create a DAS token from the DAS server.**
+- **Make sure you have access to the correct git archive for hmi.**
+- **Make sure that both port 443 and port 8443 are open and can be accessed.**
+- **Verify that the /etc/nginx.conf file contains references to “listen 8443”.**
+- **Obtain copies of fos_ds.csv and fos_dp.csv from the Dev team.**
+- **Create a DAS token from the DAS server.**
 
 # Backend Installation
 
@@ -65,7 +64,7 @@ secret_key_base: <add_key_here>
 sudo vim sidekiq.service
 ```
 
-- sudo chmod 777 sidekiq.service # (change file permissions) 
+sudo chmod 777 sidekiq.service # (change file permissions) 
 - sudo systemctl daemon-reload
 - sudo systemctl enable sidekiq.service
 - sudo service sidekiq status/start/stop
