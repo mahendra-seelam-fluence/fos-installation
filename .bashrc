@@ -1,3 +1,2 @@
-export DAS_URL='https://advancion-dv-das.fluenceenergy.com:9443'
-export DAS_AUTH_TOKEN='eyJhbGciOiJFUzUxMiJ9.eyJzdWIiOiJlZmZvbmUuYnBtZW5kZSIsImV4 cCI6MTkwNTU3Mzc4NywiaWQiOjMzLCJ2IjoyLCJ0eXAiOiJhdXRoIn0.ADYbJaocCNMfiEhEk wzD67XYOcMzEIrhb8UvXXzTQJy4l19aFSOaozpz2I_9dRjK9fKW0rN39EFAvG40NAhZNCNc AFP3C1Q3c-
-ZxM55g4qg_ftirMOkisy7mw_ePa3FMqRypAVrZqJQ6YGr8u03RSL9si0XvrzxVIbYO5g5MxrI Dmrp7'
+export DAS_URL=$DAS_URL
+export DAS_AUTH_TOKEN=$DAS_AUTH_TOKEN

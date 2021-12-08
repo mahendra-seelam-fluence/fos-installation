@@ -1,4 +1,4 @@
-export RAILS_ENV='sandbox'
-export API_ENDPOINT='https://advancion-dv-fos.fluenceenergy.com/api/v1' 
-export CABLE_SERVER='wss://advancion-dv-fos.fluenceenergy.com/cable' 
-export NAME_ARRAY='DV Array'
+export RAILS_ENV=$RAILS_ENV
+export API_ENDPOINT=$API_ENDPOINT
+export CABLE_SERVER=$CABLE_SERVER_ENDPOINT
+export NAME_ARRAY=$NAME_ARRAY
