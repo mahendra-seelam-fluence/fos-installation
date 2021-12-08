@@ -100,45 +100,54 @@ yarn
 yarn build
 
 - FOS Frontend Service
-- cd to /etc/init.d folder
+- cd to `/etc/init.d `folder
 - create ‘fos-fronend’ file
 
-- cd ‘/home/fosui/fos_interface’
-- mkdir logs
-- touch fos.log
-- chown –R 777 logs/
-- sudo chmod 777 fos-fronend
-- sudo systemctl daemon-reload
-- sudo systemctl fos-fronend
-- sudo service fos-fronend status/start/stop
+```bash
+cd ‘/home/fosui/fos_interface’
+mkdir logs
+touch fos.log
+chown –R 777 logs/
+sudo chmod 777 fos-fronend
+sudo systemctl daemon-reload
+sudo systemctl fos-fronend
+sudo service fos-fronend status/start/stop
+```
 
 ## NGINX Configuration
-cd to‘/etc/nginx/’
+cd to `/etc/nginx/`
 Update ‘nginx.conf ‘file below configuration
 Test nginx.conf before restarting ▪ nginx –t
-sudo service nginx restart/start/stop/status
+    `sudo service nginx restart/start/stop/status`
 
 ## Setup .bash_profile  and .bashrc for fosui user
 
 
 
 ##  Application Setup
-- sudo su - fosui
-- cd to the project path (/home/fosui/hmi)
+`sudo su - fosui`
+- cd to the project path `/home/fosui/hmi`
 - Restore test server database and run below commands,
+ ```
  RAILS_ENV=sandbox rake db:create
  RAILS_ENV=sandbox rake db:migrate
  RAILS_ENV=sandbox rake tmp:cache:clear
+ ```
 - Add site configuration from excel sheet,
+ ```
  RAILS_ENV=sandbox rake fos_configuration:parse_file[<file_path>]
+ ```
 - Make sure to copy the data_sources , data_points files to server and run the below commands
+ ```
  RAILS_ENV=sandbox rake das_data:parse_csvs['/home/fosui/hmi/data_sources.csv','/home/fosui/h mi/data_points.csv']
  RAILS_ENV=sandbox rake das_data:create_links
+ ```
 - Start puma server
-sudo service puma start/stop/status
-- Start sidekiq server
-sudo service sidekiq start/stop/status
-- Start hmi shell script from project path ./hmi_startup.sh start/stop/status sandbox
+    `sudo service puma start/stop/status`
+Start sidekiq server
+    `sudo service sidekiq start/stop/status`
+- Start hmi shell script from project path 
+    `./hmi_startup.sh start/stop/status sandbox`
 - Start fos-frontend script
-sudo service fos-frontend start/stop/status
+    `sudo service fos-frontend start/stop/status`
 
