@@ -142,6 +142,3 @@ sudo service sidekiq start/stop/status
 - Start fos-frontend script
 sudo service fos-frontend start/stop/status
 
-LbzKpayj2zlAn
-
-eyJhbGciOiJFUzUxMiJ9.eyJzdWIiOiJNYWhlbmRyYS5TZWVsYW0iLCJleHAiOjE5NTQ0MDg3MzYsImlkIjoxMDksInYiOjEsInR5cCI6ImF1dGgifQ.AM8RnT1kVPR8ajuR9YyPzXKjeK7IeGYbOzSVpYwYFwJGgXBCs0PnVF0kXpi8oGkJ_Y63qxIvseTCxiguNNG_hKacAWLMGXRotJqozqHXk0sMKV-akg89XiLxckCo8006EvrjKvJZ07qbfuBwdDX4aevnFUqohGd1bd_-vPZMIynZgWeh
